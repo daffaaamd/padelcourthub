@@ -35,7 +35,9 @@ return [
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'database' => env('DB_DATABASE') && (str_starts_with(env('DB_DATABASE'), '/') || str_starts_with(env('DB_DATABASE'), '\\') || (strlen(env('DB_DATABASE')) > 2 && env('DB_DATABASE')[1] === ':') || env('DB_DATABASE') === ':memory:')
+                ? env('DB_DATABASE')
+                : database_path('database.sqlite'),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'busy_timeout' => env('DB_BUSY_TIMEOUT', 5000),
