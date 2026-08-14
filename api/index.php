@@ -45,7 +45,9 @@ putenv("APP_ROUTES_CACHE=/tmp/routes.php");
 putenv("APP_SERVICES_CACHE=/tmp/services.php");
 putenv("VIEW_COMPILED_PATH=/tmp/storage/framework/views");
 putenv("LOG_CHANNEL=stderr");
+putenv("APP_TIMEZONE=Asia/Jakarta");
 putenv("VERCEL=1");
+date_default_timezone_set('Asia/Jakarta');
 
 $_ENV['APP_CONFIG_CACHE'] = '/tmp/config.php';
 $_ENV['APP_EVENTS_CACHE'] = '/tmp/events.php';

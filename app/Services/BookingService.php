@@ -55,7 +55,8 @@ class BookingService
                 return $b->start_time < $slotEnd && $b->end_time > $slotStart;
             });
 
-            $isPast = Carbon::parse($date . ' ' . $slotStart)->isPast();
+            $tz = config('app.timezone', 'Asia/Jakarta');
+            $isPast = Carbon::parse($date . ' ' . $slotStart, $tz)->isPast();
 
             $pricePerHour = $this->pricingService->getPricePerHour($court, $date, $slotStart);
 

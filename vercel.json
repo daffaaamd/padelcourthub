@@ -47,6 +47,7 @@
     "ASSET_URL": "https://padelcourthub.vercel.app",
     "DB_CONNECTION": "sqlite",
     "DB_DATABASE": "/tmp/database.sqlite",
+    "APP_TIMEZONE": "Asia/Jakarta",
     "VERCEL": "1"
   }
 }

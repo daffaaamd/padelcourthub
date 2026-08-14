@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/courts', [CourtController::class, 'index'])->name('courts.index');
-Route::get('/api/courts/{court}/availability', [CourtController::class, 'availability'])->name('courts.availability');
+Route::get('/courts/{court}/availability', [CourtController::class, 'availability'])->name('courts.availability');
+Route::get('/api/courts/{court}/availability', [CourtController::class, 'availability']);
 Route::get('/venues', [VenueController::class, 'index'])->name('venues.index');
 Route::get('/venues/{slug}', [VenueController::class, 'show'])->name('venues.show');
 Route::get('/promos', [PromoController::class, 'index'])->name('promos.index');
-Route::post('/api/promos/validate', [PromoController::class, 'validate'])->name('promos.validate');
+Route::post('/promos/validate', [PromoController::class, 'validate'])->name('promos.validate');
+Route::post('/api/promos/validate', [PromoController::class, 'validate']);
 
 // Authenticated customer routes
 Route::middleware(['auth'])->group(function () {

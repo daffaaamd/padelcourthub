@@ -59,8 +59,15 @@ const popularVouchers = [
     { code: 'COMMUNITY15', label: 'Diskon 15%', desc: 'Komunitas Padel' },
 ];
 
+const getLocalDateString = (d: Date = new Date()) => {
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+};
+
 export default function BookingCreate({ court, preselected }: Props) {
-    const today = new Date().toISOString().split('T')[0];
+    const today = getLocalDateString();
     const [selectedDate, setSelectedDate] = useState(preselected?.date || today);
     const [selectedTime, setSelectedTime] = useState(preselected?.start_time || '');
     const [selectedDuration, setSelectedDuration] = useState<DurationOption>(1);

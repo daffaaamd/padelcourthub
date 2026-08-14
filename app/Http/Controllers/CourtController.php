@@ -88,7 +88,7 @@ class CourtController extends Controller
 
     public function availability(Request $request, Court $court): JsonResponse
     {
-        $request->validate(['date' => 'required|date|after_or_equal:today']);
+        $request->validate(['date' => 'required|date']);
 
         if (!$court->isAvailable()) {
             return response()->json(['error' => 'Court sedang dalam maintenance.'], 422);
