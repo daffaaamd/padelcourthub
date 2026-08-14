@@ -21,6 +21,14 @@ foreach ($directories as $dir) {
     }
 }
 
+// Ensure HTTPS is recognized behind Vercel edge reverse proxies
+if ((isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+    (isset($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
+    isset($_SERVER['VERCEL']) || isset($_ENV['VERCEL'])) {
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = '443';
+}
+
 // Fallback APP_KEY if not configured in Vercel environment variables
 $appKey = getenv('APP_KEY') ?: ($_ENV['APP_KEY'] ?? ($_SERVER['APP_KEY'] ?? ''));
 if (empty($appKey)) {
