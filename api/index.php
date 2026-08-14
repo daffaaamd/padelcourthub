@@ -57,9 +57,17 @@ $app = require_once __DIR__ . '/../bootstrap/app.php';
 // Auto-migrate & seed SQLite on cold start if empty
 if ($isFreshSqlite) {
     try {
-        Artisan::call('migrate:fresh', ['--force' => true, '--seed' => true]);
+        Artisan::call('migrate', ['--force' => true]);
     } catch (\Throwable $e) {
-        error_log('Database initialization notice: ' . $e->getMessage());
+        error_log('[Vercel] Migration error: ' . $e->getMessage());
+    }
+
+    try {
+        if (\App\Models\User::query()->count() === 0) {
+            Artisan::call('db:seed', ['--force' => true]);
+        }
+    } catch (\Throwable $e) {
+        error_log('[Vercel] Seed error: ' . $e->getMessage());
     }
 }
 
