@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Head, Link, useForm } from '@inertiajs/react';
-import { Eye, EyeOff, UserPlus, Sparkles, ShieldCheck, Trophy, Bookmark, FileText, CheckCircle2 } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function Register() {
     const [showPassword, setShowPassword] = useState(false);
@@ -22,7 +22,7 @@ export default function Register() {
     };
 
     return (
-        <div className="min-h-screen bg-[#EEF2F6] flex items-center justify-center p-4 sm:p-6 lg:p-10 relative overflow-hidden font-sans">
+        <div className="min-h-screen bg-[#EDF2F7] flex items-center justify-center p-4 sm:p-6 lg:p-10 relative overflow-hidden font-sans">
             <Head title="Daftar Akun Baru — PadelCourt" />
 
             {/* Decorative Background Accents matching reference image */}
@@ -44,7 +44,7 @@ export default function Register() {
             <div className="w-full max-w-5xl bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.07)] border border-slate-100/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 relative z-10 min-h-[640px]">
                 
                 {/* LEFT COLUMN: 3D Illustration & Community Highlights */}
-                <div className="lg:col-span-5 bg-gradient-to-b from-[#E9F3FC] via-[#EEF5FD] to-[#E3EEFB] p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden border-b lg:border-b-0 lg:border-r border-blue-50">
+                <div className="lg:col-span-5 bg-gradient-to-b from-[#E8F3FD] via-[#EEF6FE] to-[#E2EFFC] p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden border-b lg:border-b-0 lg:border-r border-blue-50">
                     
                     {/* Top Headline with Orange/Amber Highlights */}
                     <div className="relative z-10">
@@ -53,65 +53,24 @@ export default function Register() {
                         </h2>
                     </div>
 
-                    {/* Center 3D Showcase & Floating Tile Badges */}
-                    <div className="my-6 lg:my-0 relative flex items-center justify-center">
-                        
-                        {/* Floating Top-Left 3D Tile */}
-                        <div className="absolute -top-3 left-2 sm:left-4 z-20 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-[0_12px_24px_-8px_rgba(0,0,0,0.12)] border border-white/90 transform -rotate-6">
-                            <div className="w-9 h-9 bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl flex items-center justify-center shadow-inner">
-                                <span className="text-xl">🎾</span>
-                            </div>
+                    {/* Center 3D Padel Player Illustration */}
+                    <div className="my-4 relative flex items-center justify-center">
+                        <div className="relative w-full max-w-[300px] aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white/90 bg-white group transform hover:scale-[1.02] transition-transform duration-500">
+                            <img
+                                src="/images/auth/padel_3d_player.jpg"
+                                alt="3D Padel Player Illustration"
+                                className="w-full h-full object-cover select-none"
+                            />
                         </div>
-
-                        {/* Floating Top-Right 3D Tile */}
-                        <div className="absolute -top-2 right-2 sm:right-4 z-20 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-[0_12px_24px_-8px_rgba(0,0,0,0.12)] border border-white/90 transform rotate-6">
-                            <div className="w-9 h-9 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center text-white shadow-md">
-                                <Bookmark size={18} fill="currentColor" />
-                            </div>
-                        </div>
-
-                        {/* Floating Bottom-Right 3D Tile */}
-                        <div className="absolute -bottom-3 right-2 sm:right-6 z-20 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-[0_12px_24px_-8px_rgba(0,0,0,0.12)] border border-white/90 transform -rotate-6">
-                            <div className="w-9 h-9 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl flex items-center justify-center text-emerald-700 shadow-inner">
-                                <Trophy size={18} />
-                            </div>
-                        </div>
-
-                        {/* Center Smartphone / Member Benefit Card */}
-                        <div className="w-60 sm:w-64 bg-white rounded-3xl p-3.5 shadow-2xl border-4 border-white/90 ring-1 ring-black/5 relative z-10">
-                            <div className="relative rounded-2xl overflow-hidden h-32 sm:h-36 bg-neutral-900 mb-3 shadow-inner">
-                                <img
-                                    src="/images/venues/padel_players_action.jpg"
-                                    alt="Padel Players"
-                                    className="w-full h-full object-cover opacity-90"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-900/20 to-transparent flex flex-col justify-end p-3 text-white">
-                                    <p className="text-xs font-bold">Member Baru PadelCourt</p>
-                                    <p className="text-[10px] text-amber-300 font-semibold">Bonus Voucher Rp50.000</p>
-                                </div>
-                            </div>
-
-                            <div className="bg-neutral-50 rounded-2xl p-3 border border-neutral-100 space-y-1.5 text-[11px] text-neutral-600">
-                                <div className="flex items-center gap-1.5 font-medium">
-                                    <CheckCircle2 size={13} className="text-emerald-500" />
-                                    <span>Pesan 32+ Court Terbaik</span>
-                                </div>
-                                <div className="flex items-center gap-1.5 font-medium">
-                                    <CheckCircle2 size={13} className="text-emerald-500" />
-                                    <span>Jadwal Real-Time & QR Pass</span>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                     {/* Bottom feature badges */}
                     <div className="relative z-10 flex items-center justify-center gap-2 pt-2">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-medium text-neutral-600 bg-white/70 backdrop-blur-xs px-3 py-1 rounded-full border border-white">
-                            <Sparkles size={12} className="text-amber-500" /> Gratis Selamanya
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-600 bg-white/80 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white shadow-xs">
+                            <span className="text-amber-500">✨</span> Gratis Selamanya
                         </span>
-                        <span className="inline-flex items-center gap-1 text-[11px] font-medium text-neutral-600 bg-white/70 backdrop-blur-xs px-3 py-1 rounded-full border border-white">
-                            <ShieldCheck size={12} className="text-[#1877F2]" /> Data Terproteksi
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-600 bg-white/80 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white shadow-xs">
+                            <span className="text-[#1877F2]">🛡️</span> Data Terproteksi
                         </span>
                     </div>
 
@@ -122,7 +81,7 @@ export default function Register() {
                     
                     {/* Brand Logo on Top */}
                     <div className="text-center mb-5">
-                        <Link href="/" className="inline-flex items-center gap-2 group">
+                        <Link href="/" className="inline-flex items-center gap-2.5 group">
                             <div className="w-9 h-9 bg-gradient-to-tr from-[#1877F2] to-blue-400 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                     <rect x="2" y="8" width="20" height="8" rx="1" stroke="white" strokeWidth="2" />
