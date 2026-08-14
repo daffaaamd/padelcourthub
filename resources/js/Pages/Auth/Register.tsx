@@ -49,7 +49,7 @@ export default function Register() {
                     {/* Top Headline with Orange/Amber Highlights */}
                     <div className="relative z-10">
                         <h2 className="text-xl sm:text-2xl font-bold text-neutral-800 leading-snug tracking-tight">
-                            Mulai main dan temukan <span className="text-[#EA580C] font-extrabold">Komunitas Padel</span> terbaik di Indonesia!
+                            Main <span className="text-[#EA580C] font-extrabold">Padel</span> makin asik, cari & pesan lapangan <span className="text-[#EA580C] font-extrabold">tanpa ribet!</span>
                         </h2>
                     </div>
 

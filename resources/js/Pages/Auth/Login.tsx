@@ -67,7 +67,7 @@ export default function Login({ status, canResetPassword }: Props) {
                     {/* Top Headline with Orange/Amber Highlights */}
                     <div className="relative z-10 max-w-md">
                         <h2 className="text-xl sm:text-2xl font-bold text-neutral-800 leading-snug tracking-tight">
-                            Permudah interaksi antar <span className="text-[#EA580C] font-extrabold">Pemain</span> dan <span className="text-[#EA580C] font-extrabold">Venue Padel</span> secara online!
+                            Main <span className="text-[#EA580C] font-extrabold">Padel</span> makin asik, cari & pesan lapangan <span className="text-[#EA580C] font-extrabold">tanpa ribet!</span>
                         </h2>
                     </div>
 
@@ -114,7 +114,7 @@ export default function Login({ status, canResetPassword }: Props) {
                         </Link>
 
                         <h1 className="text-2xl sm:text-[25px] font-bold text-neutral-900 mt-4 tracking-tight">
-                            Hai, selamat datang kembali
+                            Selamat Datang
                         </h1>
                         <p className="text-sm text-neutral-500 mt-1">
                             Baru di PadelCourt?{' '}
