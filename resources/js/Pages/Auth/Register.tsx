@@ -22,11 +22,11 @@ export default function Register() {
     };
 
     return (
-        <div className="min-h-screen bg-[#EDF2F7] flex items-center justify-center p-4 sm:p-6 lg:p-10 relative overflow-hidden font-sans">
+        <div className="min-h-screen bg-[#EDF2F7] flex items-center justify-center p-3 sm:p-6 lg:p-10 relative overflow-hidden font-sans">
             <Head title="Daftar Akun Baru — PadelCourt" />
 
             {/* Decorative Background Accents matching reference image */}
-            <div className="absolute top-6 right-8 hidden md:flex gap-1.5 opacity-35 transform -rotate-12 select-none pointer-events-none" aria-hidden="true">
+            <div className="absolute top-6 right-8 hidden lg:flex gap-1.5 opacity-35 transform -rotate-12 select-none pointer-events-none" aria-hidden="true">
                 {[...Array(9)].map((_, i) => (
                     <div key={i} className="w-1.5 h-16 bg-[#1877F2] rounded-full" />
                 ))}
@@ -40,11 +40,11 @@ export default function Register() {
                 </svg>
             </div>
 
-            {/* Main Split Portal Card */}
-            <div className="w-full max-w-5xl bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.07)] border border-slate-100/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 relative z-10 min-h-[640px]">
+            {/* Main Split Portal Card: Mobile-first responsive */}
+            <div className="w-full max-w-md lg:max-w-5xl bg-white rounded-2xl sm:rounded-3xl shadow-xl lg:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.07)] border border-slate-100/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 relative z-10 my-auto">
                 
-                {/* LEFT COLUMN: 3D Illustration & Community Highlights */}
-                <div className="lg:col-span-5 bg-gradient-to-b from-[#E8F3FD] via-[#EEF6FE] to-[#E2EFFC] p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden border-b lg:border-b-0 lg:border-r border-blue-50">
+                {/* LEFT COLUMN: 3D Illustration & Community Highlights (Desktop only) */}
+                <div className="hidden lg:flex lg:col-span-5 bg-gradient-to-b from-[#E8F3FD] via-[#EEF6FE] to-[#E2EFFC] p-8 sm:p-10 flex-col justify-between relative overflow-hidden border-r border-blue-50">
                     
                     {/* Top Headline with Orange/Amber Highlights */}
                     <div className="relative z-10">
@@ -76,29 +76,40 @@ export default function Register() {
 
                 </div>
 
-                {/* RIGHT COLUMN: Registration Form (7 Cols on desktop) */}
-                <div className="lg:col-span-7 bg-white p-8 sm:p-10 lg:p-12 flex flex-col justify-center">
+                {/* RIGHT COLUMN: Registration Form */}
+                <div className="lg:col-span-7 bg-white p-5 sm:p-8 lg:p-12 flex flex-col justify-center">
                     
-                    {/* Brand Logo on Top */}
-                    <div className="text-center mb-5">
-                        <Link href="/" className="inline-flex items-center gap-2.5 group">
-                            <div className="w-9 h-9 bg-gradient-to-tr from-[#1877F2] to-blue-400 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    {/* Compact 3D Avatar for Mobile Header */}
+                    <div className="lg:hidden flex justify-center mb-3">
+                        <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-md bg-[#E8F3FD] ring-2 ring-[#1877F2]/20">
+                            <img
+                                src="/images/auth/padel_3d_player.jpg"
+                                alt="Padel Player"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Brand Logo & Header */}
+                    <div className="text-center mb-4 sm:mb-5">
+                        <Link href="/" className="inline-flex items-center gap-2 group">
+                            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-tr from-[#1877F2] to-blue-400 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                                     <rect x="2" y="8" width="20" height="8" rx="1" stroke="white" strokeWidth="2" />
                                     <line x1="12" y1="8" x2="12" y2="16" stroke="white" strokeWidth="2" />
                                     <circle cx="12" cy="4" r="2.5" fill="white" />
                                     <path d="M7 16v3M17 16v3" stroke="white" strokeWidth="2" strokeLinecap="round" />
                                 </svg>
                             </div>
-                            <span className="font-extrabold text-2xl tracking-tight text-neutral-900 flex items-center">
+                            <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-neutral-900 flex items-center">
                                 Padel<span className="text-[#1877F2]">Court</span>
                             </span>
                         </Link>
 
-                        <h1 className="text-2xl sm:text-[25px] font-bold text-neutral-900 mt-3 tracking-tight">
-                            Buat Akun PadelCourt Baru
+                        <h1 className="text-xl sm:text-2xl font-bold text-neutral-900 mt-2.5 tracking-tight">
+                            Buat Akun Baru
                         </h1>
-                        <p className="text-sm text-neutral-500 mt-1">
+                        <p className="text-xs sm:text-sm text-neutral-500 mt-1">
                             Sudah memiliki akun?{' '}
                             <Link href={route('login')} className="text-[#1877F2] font-semibold hover:underline">
                                 Masuk di Sini
@@ -106,7 +117,7 @@ export default function Register() {
                         </p>
                     </div>
 
-                    <form onSubmit={submit} className="space-y-3.5">
+                    <form onSubmit={submit} className="space-y-3 sm:space-y-3.5">
                         {/* Name Input */}
                         <div>
                             <input
@@ -116,7 +127,7 @@ export default function Register() {
                                 value={data.name}
                                 onChange={(e) => setData('name', e.target.value)}
                                 placeholder="Nama Lengkap"
-                                className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-sm outline-none transition-all placeholder:text-neutral-400 bg-white"
+                                className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-base sm:text-sm outline-none transition-all placeholder:text-neutral-400 bg-white"
                                 autoComplete="name"
                                 required
                             />
@@ -124,7 +135,7 @@ export default function Register() {
                         </div>
 
                         {/* Email & Phone grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                             <div>
                                 <input
                                     id="email"
@@ -133,7 +144,7 @@ export default function Register() {
                                     value={data.email}
                                     onChange={(e) => setData('email', e.target.value)}
                                     placeholder="Contoh: email@example.com"
-                                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-sm outline-none transition-all placeholder:text-neutral-400 bg-white"
+                                    className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-base sm:text-sm outline-none transition-all placeholder:text-neutral-400 bg-white"
                                     autoComplete="username"
                                     required
                                 />
@@ -148,7 +159,7 @@ export default function Register() {
                                     value={data.phone}
                                     onChange={(e) => setData('phone', e.target.value)}
                                     placeholder="No. WhatsApp / HP (08xx)"
-                                    className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-sm outline-none transition-all placeholder:text-neutral-400 bg-white"
+                                    className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-base sm:text-sm outline-none transition-all placeholder:text-neutral-400 bg-white"
                                     autoComplete="tel"
                                 />
                                 {errors.phone && <p className="text-red-500 text-xs mt-1 font-medium">{errors.phone}</p>}
@@ -156,7 +167,7 @@ export default function Register() {
                         </div>
 
                         {/* Password & Confirm Password grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                             <div>
                                 <div className="relative">
                                     <input
@@ -166,7 +177,7 @@ export default function Register() {
                                         value={data.password}
                                         onChange={(e) => setData('password', e.target.value)}
                                         placeholder="Kata Sandi (min. 8)"
-                                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-sm outline-none transition-all placeholder:text-neutral-400 pr-10 bg-white"
+                                        className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-base sm:text-sm outline-none transition-all placeholder:text-neutral-400 pr-10 bg-white"
                                         autoComplete="new-password"
                                         required
                                     />
@@ -190,7 +201,7 @@ export default function Register() {
                                         value={data.password_confirmation}
                                         onChange={(e) => setData('password_confirmation', e.target.value)}
                                         placeholder="Ulangi Kata Sandi"
-                                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-sm outline-none transition-all placeholder:text-neutral-400 pr-10 bg-white"
+                                        className="w-full px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-base sm:text-sm outline-none transition-all placeholder:text-neutral-400 pr-10 bg-white"
                                         autoComplete="new-password"
                                         required
                                     />
@@ -209,11 +220,11 @@ export default function Register() {
                         </div>
 
                         {/* Submit Button */}
-                        <div className="pt-2">
+                        <div className="pt-1.5">
                             <button
                                 type="submit"
                                 disabled={processing}
-                                className="w-full py-3.5 bg-[#1877F2] hover:bg-[#166FE5] active:scale-[0.99] text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="w-full py-3 sm:py-3.5 bg-[#1877F2] hover:bg-[#166FE5] active:scale-[0.99] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                             >
                                 {processing ? (
                                     <>
@@ -227,7 +238,7 @@ export default function Register() {
                         </div>
 
                         {/* Terms and Privacy Policy Note */}
-                        <p className="text-[11px] text-neutral-400 text-center leading-relaxed pt-2">
+                        <p className="text-[10px] sm:text-[11px] text-neutral-400 text-center leading-relaxed pt-1.5">
                             Dengan mendaftar, kamu menyetujui{' '}
                             <a href="#" className="text-[#1877F2] font-semibold hover:underline">
                                 Syarat Penggunaan

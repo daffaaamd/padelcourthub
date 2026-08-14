@@ -40,11 +40,11 @@ export default function Login({ status, canResetPassword }: Props) {
     };
 
     return (
-        <div className="min-h-screen bg-[#EDF2F7] flex items-center justify-center p-4 sm:p-6 lg:p-10 relative overflow-hidden font-sans">
+        <div className="min-h-screen bg-[#EDF2F7] flex items-center justify-center p-3 sm:p-6 lg:p-10 relative overflow-hidden font-sans">
             <Head title="Masuk ke Akun PadelCourt" />
 
             {/* Decorative Background Accents matching reference image */}
-            <div className="absolute top-6 right-8 hidden md:flex gap-1.5 opacity-35 transform -rotate-12 select-none pointer-events-none" aria-hidden="true">
+            <div className="absolute top-6 right-8 hidden lg:flex gap-1.5 opacity-35 transform -rotate-12 select-none pointer-events-none" aria-hidden="true">
                 {[...Array(9)].map((_, i) => (
                     <div key={i} className="w-1.5 h-16 bg-[#1877F2] rounded-full" />
                 ))}
@@ -58,11 +58,11 @@ export default function Login({ status, canResetPassword }: Props) {
                 </svg>
             </div>
 
-            {/* Main Split Portal Card */}
-            <div className="w-full max-w-5xl bg-white rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.07)] border border-slate-100/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 relative z-10 min-h-[640px]">
+            {/* Main Split Portal Card: Mobile-first responsive */}
+            <div className="w-full max-w-md lg:max-w-5xl bg-white rounded-2xl sm:rounded-3xl shadow-xl lg:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.07)] border border-slate-100/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 relative z-10 my-auto">
                 
-                {/* LEFT COLUMN: 3D Illustration & Visual Feature (6 Cols on desktop) */}
-                <div className="lg:col-span-6 bg-gradient-to-b from-[#E8F3FD] via-[#EEF6FE] to-[#E2EFFC] p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden border-b lg:border-b-0 lg:border-r border-blue-50">
+                {/* LEFT COLUMN: 3D Illustration & Visual Feature (Visible on Desktop / lg screens) */}
+                <div className="hidden lg:flex lg:col-span-6 bg-gradient-to-b from-[#E8F3FD] via-[#EEF6FE] to-[#E2EFFC] p-8 sm:p-10 flex-col justify-between relative overflow-hidden border-r border-blue-50">
                     
                     {/* Top Headline with Orange/Amber Highlights */}
                     <div className="relative z-10 max-w-md">
@@ -94,29 +94,40 @@ export default function Login({ status, canResetPassword }: Props) {
 
                 </div>
 
-                {/* RIGHT COLUMN: Clean Login Form (6 Cols on desktop) */}
-                <div className="lg:col-span-6 bg-white p-8 sm:p-10 lg:p-12 flex flex-col justify-center">
+                {/* RIGHT COLUMN: Clean Login Form */}
+                <div className="lg:col-span-6 bg-white p-5 sm:p-8 lg:p-12 flex flex-col justify-center">
                     
-                    {/* Brand Logo on Top */}
-                    <div className="text-center mb-6">
-                        <Link href="/" className="inline-flex items-center gap-2.5 group">
-                            <div className="w-9 h-9 bg-gradient-to-tr from-[#1877F2] to-blue-400 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    {/* Compact 3D Avatar for Mobile Header */}
+                    <div className="lg:hidden flex justify-center mb-3">
+                        <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-md bg-[#E8F3FD] ring-2 ring-[#1877F2]/20">
+                            <img
+                                src="/images/auth/padel_3d_player.jpg"
+                                alt="Padel Player"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Brand Logo & Header */}
+                    <div className="text-center mb-5 sm:mb-6">
+                        <Link href="/" className="inline-flex items-center gap-2 group">
+                            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-tr from-[#1877F2] to-blue-400 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                                     <rect x="2" y="8" width="20" height="8" rx="1" stroke="white" strokeWidth="2" />
                                     <line x1="12" y1="8" x2="12" y2="16" stroke="white" strokeWidth="2" />
                                     <circle cx="12" cy="4" r="2.5" fill="white" />
                                     <path d="M7 16v3M17 16v3" stroke="white" strokeWidth="2" strokeLinecap="round" />
                                 </svg>
                             </div>
-                            <span className="font-extrabold text-2xl tracking-tight text-neutral-900 flex items-center">
+                            <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-neutral-900 flex items-center">
                                 Padel<span className="text-[#1877F2]">Court</span>
                             </span>
                         </Link>
 
-                        <h1 className="text-2xl sm:text-[25px] font-bold text-neutral-900 mt-4 tracking-tight">
+                        <h1 className="text-xl sm:text-2xl font-bold text-neutral-900 mt-3 tracking-tight">
                             Selamat Datang
                         </h1>
-                        <p className="text-sm text-neutral-500 mt-1">
+                        <p className="text-xs sm:text-sm text-neutral-500 mt-1">
                             Baru di PadelCourt?{' '}
                             <Link href={route('register')} className="text-[#1877F2] font-semibold hover:underline">
                                 Daftar Gratis
@@ -125,12 +136,12 @@ export default function Login({ status, canResetPassword }: Props) {
                     </div>
 
                     {status && (
-                        <div className="mb-4 text-sm font-medium text-emerald-700 bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                        <div className="mb-4 text-xs sm:text-sm font-medium text-emerald-700 bg-emerald-50 p-3 rounded-xl border border-emerald-200">
                             {status}
                         </div>
                     )}
 
-                    <form onSubmit={submit} className="space-y-4">
+                    <form onSubmit={submit} className="space-y-3.5 sm:space-y-4">
                         {/* Email Input */}
                         <div>
                             <input
@@ -140,7 +151,7 @@ export default function Login({ status, canResetPassword }: Props) {
                                 value={data.email}
                                 onChange={(e) => setData('email', e.target.value)}
                                 placeholder="Contoh: email@example.com"
-                                className="w-full px-4 py-3.5 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-sm outline-none transition-all placeholder:text-neutral-400 bg-white"
+                                className="w-full px-3.5 sm:px-4 py-3 sm:py-3.5 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-base sm:text-sm outline-none transition-all placeholder:text-neutral-400 bg-white"
                                 autoComplete="username"
                                 required
                             />
@@ -157,14 +168,14 @@ export default function Login({ status, canResetPassword }: Props) {
                                     value={data.password}
                                     onChange={(e) => setData('password', e.target.value)}
                                     placeholder="Masukkan kata sandi kamu"
-                                    className="w-full px-4 py-3.5 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-sm outline-none transition-all placeholder:text-neutral-400 pr-11 bg-white"
+                                    className="w-full px-3.5 sm:px-4 py-3 sm:py-3.5 rounded-xl border border-neutral-300 focus:border-[#1877F2] focus:ring-4 focus:ring-[#1877F2]/10 text-base sm:text-sm outline-none transition-all placeholder:text-neutral-400 pr-11 bg-white"
                                     autoComplete="current-password"
                                     required
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 transition-colors p-1"
+                                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 transition-colors p-1.5"
                                     aria-label={showPassword ? 'Sembunyikan sandi' : 'Tampilkan sandi'}
                                 >
                                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -178,7 +189,7 @@ export default function Login({ status, canResetPassword }: Props) {
                             <button
                                 type="submit"
                                 disabled={processing}
-                                className="w-full py-3.5 bg-[#1877F2] hover:bg-[#166FE5] active:scale-[0.99] text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="w-full py-3 sm:py-3.5 bg-[#1877F2] hover:bg-[#166FE5] active:scale-[0.99] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                             >
                                 {processing ? (
                                     <>
@@ -191,7 +202,7 @@ export default function Login({ status, canResetPassword }: Props) {
                             </button>
                         </div>
 
-                        {/* Right-aligned Forgot Password Link (matching reference image) */}
+                        {/* Right-aligned Forgot Password Link */}
                         {canResetPassword && (
                             <div className="text-right -mt-1">
                                 <Link
@@ -219,18 +230,18 @@ export default function Login({ status, canResetPassword }: Props) {
                         </div>
 
                         {/* Divider */}
-                        <div className="border-t border-neutral-100 my-4" />
+                        <div className="border-t border-neutral-100 my-3.5 sm:my-4" />
 
                         {/* Quick Demo Fillers */}
-                        <div className="bg-neutral-50 rounded-xl p-3 border border-neutral-100">
-                            <p className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider text-center mb-2">
+                        <div className="bg-neutral-50 rounded-xl p-2.5 sm:p-3 border border-neutral-100">
+                            <p className="text-[10px] sm:text-[11px] font-semibold text-neutral-400 uppercase tracking-wider text-center mb-2">
                                 Akun Demo (Klik untuk Isi Instan):
                             </p>
                             <div className="grid grid-cols-2 gap-2">
                                 <button
                                     type="button"
                                     onClick={() => fillDemoUser('customer')}
-                                    className="flex items-center justify-center gap-1.5 py-1.5 px-2 bg-white border border-neutral-200 hover:border-[#1877F2] hover:text-[#1877F2] rounded-lg text-xs font-semibold text-neutral-700 transition-colors shadow-xs"
+                                    className="flex items-center justify-center gap-1.5 py-1.5 px-2 bg-white border border-neutral-200 hover:border-[#1877F2] hover:text-[#1877F2] rounded-lg text-[11px] sm:text-xs font-semibold text-neutral-700 transition-colors shadow-xs"
                                 >
                                     <UserCheck size={13} className="text-[#1877F2]" />
                                     Customer Demo
@@ -238,7 +249,7 @@ export default function Login({ status, canResetPassword }: Props) {
                                 <button
                                     type="button"
                                     onClick={() => fillDemoUser('admin')}
-                                    className="flex items-center justify-center gap-1.5 py-1.5 px-2 bg-white border border-neutral-200 hover:border-amber-500 hover:text-amber-600 rounded-lg text-xs font-semibold text-neutral-700 transition-colors shadow-xs"
+                                    className="flex items-center justify-center gap-1.5 py-1.5 px-2 bg-white border border-neutral-200 hover:border-amber-500 hover:text-amber-600 rounded-lg text-[11px] sm:text-xs font-semibold text-neutral-700 transition-colors shadow-xs"
                                 >
                                     <ShieldCheck size={13} className="text-amber-500" />
                                     Admin Demo
@@ -247,7 +258,7 @@ export default function Login({ status, canResetPassword }: Props) {
                         </div>
 
                         {/* Terms and Privacy Policy Note */}
-                        <p className="text-[11px] text-neutral-400 text-center leading-relaxed pt-2">
+                        <p className="text-[10px] sm:text-[11px] text-neutral-400 text-center leading-relaxed pt-1.5">
                             Dengan melanjutkan, kamu menerima{' '}
                             <a href="#" className="text-[#1877F2] font-semibold hover:underline">
                                 Syarat Penggunaan
