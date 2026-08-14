@@ -51,13 +51,7 @@
 
 ## 📱 Fitur Customer / Pemain
 
-```mermaid
-graph LR
-    A[🔍 Cari Venue & Court] --> B[📅 Pilih Tanggal & Slot Jam]
-    B --> C[🎟️ Masukkan Promo]
-    C --> D[💳 Checkout & Bayar]
-    D --> E[🎫 Dapatkan QR Pass & E-Ticket]
-```
+> **Alur Booking**: **1. 🔍 Cari Venue** ➔ **2. 📅 Pilih Slot Jam** ➔ **3. 🎟️ Masukkan Promo** ➔ **4. 💳 Checkout & Bayar** ➔ **5. 🎫 E-Ticket & QR Pass**
 
 - **🏠 Beranda Interaktif**:
   - Filter pencarian cepat berdasarkan kota, tanggal, jam mulai, dan durasi.
